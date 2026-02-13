@@ -13,10 +13,10 @@ const PromisesPage = ({ onNext }: PromisesPageProps) => {
     "I promise to always support and uplift you.",
     "I promise to grow old with you and gossip irresponsibly.",
     "I promise to be the Stiles to your Scott or the other way around.",
-    "I promise that distance, time, or change will never undo what we've build.",
+    "I promise that distance, time, or change will never undo what we've built.",
     "I promise to cherish every moment with you.",
-    "I promise that no matter what my life looks like in the future you will always be my choosen family.",
-    "I promise to portect and cherish the soft parts of you that you let me peek into and never take her for granted.",
+    "I promise that no matter what my life looks like in the future you will always be my chosen family.",
+    "I promise to protect and cherish the soft parts of you that you let me peek into and never take her for granted.",
     "I promise to choose you, every single day.",
   ];
 
