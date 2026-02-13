@@ -12,15 +12,15 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
   const finalMessage = "Endless love is not just spoken—it is felt, forever.";
 
   const messages = [
-    { text: "Love is trust", x: -140, y: -100 },
-    { text: "Love is laughter", x: 20, y: -80 },
-    { text: "Love is patience", x: -160, y: -20 },
-    { text: "Love is understanding", x: 0, y: 40 },
-    { text: "Love is comfort", x: -120, y: 80 },
-    { text: "Love is growth", x: 30, y: -40 },
-    { text: "Love is adventure", x: -100, y: -60 },
-    { text: "Love is home", x: -20, y: 100 },
-    { text: "Love is forever", x: -60, y: 20 },
+    { text: "Love is you and me cooking dinner together", x: -140, y: -100 },
+    { text: "Love is having my first matcha experience with you", x: 20, y: -80 },
+    { text: "Love is Isla", x: -160, y: -20 },
+    { text: "Love is coming back exhausted from uni together", x: 0, y: 40 },
+    { text: "Love is hating on Lydia together", x: -120, y: 80 },
+    { text: "Love is being each other's emergency call", x: 30, y: -40 },
+    { text: "Love is geeking out on adult shit together", x: -100, y: -60 },
+    { text: "Love is being reminded of each other by a song", x: -20, y: 100 },
+    { text: "Love is not knowing anything for certain about our future but knowing we stay together" x: -60, y: 20 },
   ];
 
   useEffect(() => {
