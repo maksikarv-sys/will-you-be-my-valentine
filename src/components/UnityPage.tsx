@@ -6,9 +6,11 @@ interface UnityPageProps {
 
 const UnityPage = ({ onBack }: UnityPageProps) => {
   const [messageIndex, setMessageIndex] = useState(0);
+  const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [showFinalMessage, setShowFinalMessage] = useState(false);
   const [showBackButton, setShowBackButton] = useState(false);
   const [typedMessage, setTypedMessage] = useState("");
+
   const finalMessage = "Endless love is not just spoken—it is felt, forever.";
 
   const messages = [
@@ -18,26 +20,41 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
     { text: "Love is coming back exhausted from uni together", x: 0, y: 40 },
     { text: "Love is hating on Lydia together", x: -120, y: 80 },
     { text: "Love is being each other's emergency call", x: 30, y: -40 },
-    { text: "Love is geeking out on adult shit together", x: -100, y: -60 },
+    { text: "Love is geeking out on adult stuff together", x: -100, y: -60 },
     { text: "Love is being reminded of each other by a song", x: -20, y: 100 },
-    { text: "Love is not knowing anything for certain about our future but knowing we stay together", x: -60, y: 20 },
-
+    {
+      text: "Love is not knowing anything for certain about our future but knowing we stay together",
+      x: -60,
+      y: 20,
+    },
   ];
 
+  // Fade-in effect for messages
+  useEffect(() => {
+    if (messageIndex > 0 && messageIndex <= messages.length) {
+      const timeout = setTimeout(() => {
+        setVisibleMessages((prev) => [...prev, messageIndex - 1]);
+      }, 200); // Delay between messages
+
+      return () => clearTimeout(timeout);
+    }
+  }, [messageIndex]);
+
+  // Typing effect for final message
   useEffect(() => {
     if (showFinalMessage) {
       let currentIndex = 0;
-      const typingInterval = setInterval(() => {
+      const interval = setInterval(() => {
         if (currentIndex <= finalMessage.length) {
           setTypedMessage(finalMessage.slice(0, currentIndex));
           currentIndex++;
         } else {
-          clearInterval(typingInterval);
-          setTimeout(() => setShowBackButton(true), 500);
+          clearInterval(interval);
+          setShowBackButton(true);
         }
-      }, 50); // Adjust speed here (lower number = faster)
+      }, 50);
 
-      return () => clearInterval(typingInterval);
+      return () => clearInterval(interval);
     }
   }, [showFinalMessage]);
 
@@ -46,28 +63,30 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
       setMessageIndex((prev) => prev + 1);
     } else if (!showFinalMessage) {
       setShowFinalMessage(true);
-      setTimeout(() => setShowBackButton(true), 2000);
     }
   };
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen w-full p-4 cursor-pointer"
+      className="flex flex-col items-center justify-center min-h-screen w-full p-4 cursor-pointer bg-white"
       onClick={handleScreenClick}
     >
-      <h1 className="text-3xl text-primary font-bold mb-8">
+      <h1 className="text-3xl sm:text-4xl text-primary font-bold mb-8 text-center">
         A Love That Grows
       </h1>
 
-      <div className="relative w-full max-w-md h-[300px] flex items-center justify-center overflow-hidden">
-        {messages.slice(0, messageIndex).map((message, index) => (
+      <div className="relative w-full max-w-md h-[400px] flex items-center justify-center overflow-visible">
+        {messages.map((message, idx) => (
           <div
-            key={index}
-            className="absolute text-primary text-base sm:text-lg whitespace-nowrap animate-fade-in"
+            key={idx}
+            className={`absolute text-primary text-base sm:text-lg whitespace-normal text-center transition-opacity duration-700 ${
+              visibleMessages.includes(idx) ? "opacity-100" : "opacity-0"
+            }`}
             style={{
-              transform: `translate(${message.x}px, ${message.y}px)`,
               left: "50%",
               top: "50%",
+              transform: `translate(${message.x}px, ${message.y}px)`,
+              maxWidth: "200px",
             }}
           >
             {message.text}
@@ -76,7 +95,7 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
       </div>
 
       {showFinalMessage && (
-        <div className="text-xl sm:text-2xl text-primary font-bold text-center mt-8 px-4">
+        <div className="text-xl sm:text-2xl text-primary font-bold text-center mt-8 px-4 break-words">
           "{typedMessage}"
         </div>
       )}
@@ -103,3 +122,5 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
 };
 
 export default UnityPage;
+
+
