@@ -20,7 +20,8 @@ const UnityPage = ({ onBack }: UnityPageProps) => {
     { text: "Love is being each other's emergency call", x: 30, y: -40 },
     { text: "Love is geeking out on adult shit together", x: -100, y: -60 },
     { text: "Love is being reminded of each other by a song", x: -20, y: 100 },
-    { text: "Love is not knowing anything for certain about our future but knowing we stay together" x: -60, y: 20 },
+    { text: "Love is not knowing anything for certain about our future but knowing we stay together", x: -60, y: 20 },
+
   ];
 
   useEffect(() => {
