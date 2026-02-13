@@ -27,14 +27,13 @@ const LoveLetter = ({ onBack }: LoveLetterProps) => {
             My Dearest...
           </h2>
           <p className="text-lg leading-relaxed">
-            Every moment with you is a treasure, every laugh a melody, and every
-            hug a little piece of home. You make my world brighter just by being
-            in it, and I'm so grateful for you. May your days be filled with
-            joy, your heart with warmth, and your dreams with endless
-            possibilities.
+            Every moment with you is a treasure, you're the light in my darkest days, and i know our hugs are rare but,
+            i cherish each one i have had because they remind me of home. You make my world brighter just by being
+            in it, and I'm so grateful for you. May you conquer the world with your might,
+            and i have the oppurtunity to see you become your own dream.To eternity ahead and then beyond.
           </p>
           <p className="text-right mt-8">With all my love,</p>
-          <p className="text-right">❤️ David</p>
+          <p className="text-right">❤️ Your wife</p>
         </div>
       </div>
       {!isUnfolded ? (
